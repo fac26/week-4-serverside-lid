@@ -7,9 +7,9 @@ function getAddFilmForm(req, res) {
     return res.status(404).send(`page is only for signed users`);
   }
   const title = "Add your film!";
-  const content = addFilmForm(); //addSecretsForm.formhtml
+  const content = addFilmForm();
   const nav = navBar(req.session);
-  const body = html(title, nav, content); //sort this line out
+  const body = html(title, nav, content); 
   res.send(body);
 }
 
