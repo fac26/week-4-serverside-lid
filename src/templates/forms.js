@@ -1,3 +1,5 @@
+const { sanitize } = require("../src/routes/sign-up.js")
+
 function signupLogin(path, errors = {}, values= {}) {
     const credentialshtml = /*html*/ `
     <div class="credentials-form">
@@ -19,11 +21,6 @@ function signupLogin(path, errors = {}, values= {}) {
     </div>
   `;
   return credentialshtml;
-}
-
-
-function sanitize(unsafe) {
-    return unsafe.replace(/</g, '&lt;');
 }
 
 function validation(message) {
