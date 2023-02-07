@@ -1,6 +1,7 @@
 const { getUserByEmail } = require("../model/users.js");
 const { createSession } = require("../model/sessions.js");
 const { email } = require("../model/log-in.js");
+console.log(email);
 
 function sanitize(unsafe) {
   return unsafe.replace(/</g, "&lt;");
