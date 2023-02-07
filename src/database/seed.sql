@@ -20,7 +20,7 @@ INSERT INTO genres (id, genre_name) VALUES
 
 ON CONFLICT DO NOTHING;
 
-INSERT INTO photos (id_ photo, film_id, user_id) VALUES
+INSERT INTO photos (id, photo, film_id, user_id) VALUES
 (1, photo, 1, 1)
 (2, photo, 2, 2)
 
