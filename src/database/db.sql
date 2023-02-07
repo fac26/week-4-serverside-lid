@@ -5,14 +5,15 @@ BEGIN;
 CREATE TABLE IF NOT EXISTS film (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     name TEXT UNIQUE,
-    year DATETIME NOT NULL,
-    director TEXT UNIQUE,
+    year INTEGER,
+    director TEXT,
     genre_id INTEGER REFERENCES genre(id),
+    CHECK (year > (0))
 );
 
 CREATE TABLE IF NOT EXISTS genre (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    genre_name TEXT NOT NULL
+    genre_name TEXT UNIQUE NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS photo (
