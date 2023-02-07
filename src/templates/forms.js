@@ -26,6 +26,7 @@ function sanitize(unsafe) {
     return unsafe.replace(/</g, '&lt;');
 }
 
+
 function validation(message) {
     if (message) {
         return `<span style="color: red">${message}</span>`;
@@ -33,4 +34,6 @@ function validation(message) {
         return '';
     }
 }
+
 module.exports = { signupLogin, sanitize }
+
