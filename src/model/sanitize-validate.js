@@ -6,14 +6,12 @@ function sanitize(unsafe) {
   return unsafe.replace(/</g, "&lt;");
 }
 
-function validation(message) {
+function validation(email, response) {
   const user = getUserByEmail(email); //{id.hash..}
-  if (message) {
-    if (user) {
-      return response.status(400).send("<h1>This email already exists</h1>");
-    } else {
-      createSession();
-    }
+  if (user) {
+    return response.status(400).send("<h1>This email already exists</h1>");
+  } else {
+    createSession;
   }
 }
 
