@@ -16,9 +16,9 @@ CREATE TABLE IF NOT EXISTS genre (
     genre_name TEXT UNIQUE NOT NULL
 );
 
-CREATE TABLE IF NOT EXISTS photo (
+CREATE TABLE IF NOT EXISTS photos (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    photo TEXT,
+    photo VARBINARY(MAX),
     film_id INTEGER REFERENCES film(id),
     user_id INTEGER REFERENCES users(id)
 );
