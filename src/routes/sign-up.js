@@ -13,11 +13,10 @@ const { sanitize } = require('../model/sanitize-validate');
 
 function getSignUp(req, res) {
     const title = 'Create an account';
-    const h1 = /*html*/ `<h1>${title}</h1>`;
     const nav = /*html*/ `<ul>
     <li><a href='/'>Home</a><ul>`;
     const content = signupLogin('/sign-up');
-    const signUpPage = html(title, nav, h1.concat(content));
+    const signUpPage = html(title, nav, content);
     res.send(signUpPage);
 }
 
