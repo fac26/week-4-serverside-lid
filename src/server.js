@@ -8,6 +8,8 @@ const staticHandler = express.static("public");
 const { getHomePage } = require("./routes/home");
 const { getSignUp, postSignUp } = require("./routes/sign-up");
 const { getSignin, postSignin } = require("./routes/log-in");
+const { postSignOut } = require("./routes/log-out");
+
 const { getSession, removeSession } = require("./model/sessions"); //getSession(sid), removeSession(sid);
 
 const server = express();
@@ -25,7 +27,7 @@ server.post("/sign-up", bodyParser, postSignUp);
 // add sign-in callback function
 server.get("/sign-in", getSignin);
 server.post("/sign-in", bodyParser, postSignin);
-server.post("/log-out", bodyParser, postSignin);
+server.post("/log-out", bodyParser, postSignOut);
 
 function sessions(req, res, next) {
   const sid = req.signedCookies.sid; //undefined if there is not a sid
