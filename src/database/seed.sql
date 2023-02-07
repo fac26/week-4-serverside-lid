@@ -21,8 +21,8 @@ INSERT INTO genres (id, genre_name) VALUES
 ON CONFLICT DO NOTHING;
 
 INSERT INTO photo (id_ photo, film_id, user_id) VALUES
-(1, photo, $, $)
-(2, photo, $, $)
+(1, photo, 1, 1)
+(2, photo, 2, 2)
 
 ON CONFLICT DO NOTHING;
 
