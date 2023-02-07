@@ -27,6 +27,8 @@ server.post("/sign-up", bodyParser, postSignUp);
 // add sign-in callback function
 server.get("/sign-in", getSignin);
 server.post("/sign-in", bodyParser, postSignin);
+
+// add log-in callback function
 server.post("/log-out", bodyParser, postSignOut);
 
 function sessions(req, res, next) {
