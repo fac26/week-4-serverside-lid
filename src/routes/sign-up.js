@@ -7,9 +7,8 @@ const { html } = require('../templates/html');
 const { signupLogin } = require('../templates/forms');
 const { sanitize } = require('../model/sanitize-validate');
 
-
-// const { createUser } = require('../model/users');
-// const { createSession } = require('../model/sessions');
+const { createUser } = require('../model/users');
+const { createSession } = require('../model/sessions');
 
 function getSignUp(req, res) {
     const title = 'Create an account';

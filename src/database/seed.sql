@@ -32,12 +32,6 @@ INSERT INTO users (id, email, hash, created_at) VALUES
 
 ON CONFLICT DO NOTHING;
 
-INSERT INTO sessions (id, user_id, expires_at, created_at) VALUES
-(1, 1, '2023-02-15 00:00:00', '2023-02-07 00:00:00')
-
-
-ON CONFLICT DO NOTHING;
-
 COMMIT;
 
 PRAGMA foreign_keys = ON;
