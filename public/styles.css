@@ -1,0 +1,32 @@
+:root {
+  --bg-colour: whitesmoke; /* Background colour - Dark blue */
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+body {
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--bg-colour);
+  background-size: cover;
+}
+
+nav {
+  margin-bottom: 3em;
+}
+a {
+  text-decoration: none;
+  font-size: 1rem;
+  gap: 4em;
+  color: black;
+}
+
+ul>.nav-bar {
+  text-align: center;
+  padding:4rem;
+  color: black;
+  width: 100vw;
+}
