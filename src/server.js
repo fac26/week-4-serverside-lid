@@ -8,9 +8,10 @@ const staticHandler = express.static("public");
 const { getHomePage } = require("./routes/home");
 const { getSignUp, postSignUp } = require("./routes/sign-up");
 const { getSignin, postSignin } = require("./routes/log-in");
-const { postSignOut } = require("./routes/log-out");
 
 const { getSession, removeSession } = require("./model/sessions"); //getSession(sid), removeSession(sid);
+const { getAddFilmForm } = require("./routes/add-film");
+const { postSignOut } = require("./routes/log-out");
 
 const server = express();
 
@@ -28,8 +29,10 @@ server.post("/sign-up", bodyParser, postSignUp);
 server.get("/sign-in", getSignin);
 server.post("/sign-in", bodyParser, postSignin);
 
-// add log-in callback function
-server.post("/log-out", bodyParser, postSignOut);
+server.get("/add-film", confirmLoggedOut, getAddFilmForm);
+
+// add log-out callback function
+server.post("/log-out", postSignOut);
 
 function sessions(req, res, next) {
   const sid = req.signedCookies.sid; //undefined if there is not a sid
@@ -43,6 +46,23 @@ function sessions(req, res, next) {
     } else {
       req.session = session;
     }
+  }
+  next();
+}
+
+function confirmLogin(req, res, next) {
+  const isLoggedIn = req.session;
+  if (isLoggedIn) {
+    return res.redirect("/");
+  }
+  next();
+}
+
+//middle ware to be added to add-secret route, not yet in main branch
+function confirmLoggedOut(req, res, next) {
+  const isLoggedIn = req.session;
+  if (!isLoggedIn) {
+    res.redirect("/");
   }
   next();
 }

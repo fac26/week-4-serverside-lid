@@ -27,7 +27,7 @@ function navBar(session) {
   <li><a href='/'>Home</a>
   ${
     session
-      ? /*html*/ `<li><a href="/add-secret">Add an image from your favourite film!</a></li>
+      ? /*html*/ `<li><a href="/add-film">Add an image from your favourite film!</a></li>
                     <li><form method="POST" action="/log-out"><button class="Button">Log out</button></form></li>`
       : /*html*/ `<li><a href="/sign-up">Sign up</a></li>
                     <li><a href="/sign-in">log in</a></li>`

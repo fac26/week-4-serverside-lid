@@ -4,8 +4,8 @@
 const bcrypt = require('bcryptjs');
 
 const { html } = require('../templates/html');
-
-const { signupLogin, sanitize } = require('../templates/forms');
+const { signupLogin } = require('../templates/forms');
+const { sanitize } = require('../model/sanitize-validate');
 
 
 // const { createUser } = require('../model/users');
