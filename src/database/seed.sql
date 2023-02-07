@@ -20,7 +20,7 @@ INSERT INTO genres (id, genre_name) VALUES
 
 ON CONFLICT DO NOTHING;
 
-INSERT INTO photo (id_ photo, film_id, user_id) VALUES
+INSERT INTO photos (id_ photo, film_id, user_id) VALUES
 (1, photo, 1, 1)
 (2, photo, 2, 2)
 
@@ -35,9 +35,9 @@ ON CONFLICT DO NOTHING;
 INSERT INTO sessions (id, user_id, expires_at, created_at) VALUES
 (1, 1, '2023-02-15 00:00:00', '2023-02-07 00:00:00'),
 
+ON CONFLICT DO NOTHING;
 
 COMMIT;
 
 PRAGMA foreign_keys = ON;
 
-INSERT INTO tables ()
