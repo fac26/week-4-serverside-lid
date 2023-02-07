@@ -1,3 +1,5 @@
+const { sanitize, validation } = require('../model/sanitize-validate');
+
 function signupLogin(path, errors = {}, values= {}) {
     const credentialshtml = /*html*/ `
     <div class="credentials-form">
@@ -21,19 +23,29 @@ function signupLogin(path, errors = {}, values= {}) {
   return credentialshtml;
 }
 
-
-function sanitize(unsafe) {
-    return unsafe.replace(/</g, '&lt;');
+function addFilmForm(errors = {}, values = {}) {
+  const formhtml = /*html*/ `
+  <form method="POST" action="/add-film">
+  <div>
+    <label for="name">Film Title</label> 
+    <input name="name" id="name" required value="${values.name ? sanitize(values.name) : ''}">
+    ${validation(errors.name)}
+  </div>
+  <div>
+    <label for="year">Year Released</label> 
+    <input name="year" id="year" required value="${values.year ? sanitize(values.year) : ''}">
+    ${validation(errors.year)}
+  </div>
+  <div>
+    <label for="director">Director</label>
+    <input name="director" id="director" required value="${values.director ? sanitize(values.director) : ''}">
+    ${validation(errors.director)}
+  </div>
+  <button class="Button" type="Submit">Add &plus;</button>
+  </form>
+  `;
+  return formhtml;
 }
 
-
-function validation(message) {
-    if (message) {
-        return `<span style="color: red">${message}</span>`;
-    } else {
-        return '';
-    }
-}
-
-module.exports = { signupLogin, sanitize }
+module.exports = { signupLogin, addFilmForm }
 
