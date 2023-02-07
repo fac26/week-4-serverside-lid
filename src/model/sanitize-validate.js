@@ -1,18 +1,15 @@
-const { getUserByEmail } = require("../model/users.js");
-const { createSession } = require("../model/sessions.js");
-const { email } = require("../model/log-in.js");
+const { email } = require("../routes/log-in.js");
 console.log(email);
 
 function sanitize(unsafe) {
   return unsafe.replace(/</g, "&lt;");
 }
 
-function validation(email, response) {
-  const user = getUserByEmail(email); //{id.hash..}
-  if (user) {
-    return response.status(400).send("<h1>This email already exists</h1>");
+function validation(message) {
+  if (message) {
+    return `<span style="color: red">${message}</span>`;
   } else {
-    createSession;
+    return "";
   }
 }
 

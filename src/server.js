@@ -3,6 +3,9 @@ const cookieParser = require("cookie-parser");
 const cookies = cookieParser(process.env.COOKIE_SECRET); //process.env.COOKIE_SECRET
 const bodyParser = express.urlencoded({ extended: false });
 
+const { getUserByEmail } = require("../model/users.js");
+const { createSession } = require("../model/sessions.js");
+
 const staticHandler = express.static("public");
 
 const { getHomePage } = require("./routes/home");
@@ -23,7 +26,7 @@ server.get("/", getHomePage);
 
 // add sign-up callback function
 server.get("/sign-up", confirmLogin, getSignUp); //html page
-server.post("/sign-up", bodyParser, postSignUp);
+server.post("/sign-up", bodyParser, emailDuplicationCheck, postSignUp);
 
 // add sign-in callback function
 server.get("/sign-in", getSignin);
@@ -63,6 +66,16 @@ function confirmLoggedOut(req, res, next) {
   const isLoggedIn = req.session;
   if (!isLoggedIn) {
     res.redirect("/");
+  }
+  next();
+}
+
+function emailDuplicationCheck(email, request, response, next) {
+  const emailExists = getUserByEmail(email) || null; //{id.hash..}
+  if (emailExists) {
+    return response.status(400).send("<h1>This email already exists</h1>");
+  } else {
+    createSession;
   }
   next();
 }
