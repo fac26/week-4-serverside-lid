@@ -42,7 +42,7 @@ function postSignUp(req, res) {
             })
             .catch((err) =>
                 console.log(
-                    'Error from hashing the password, something went wrong with brypt.hash',
+                    'Error from hashing the password, something went wrong with bcrypt.hash',
                     err
                 )
             );

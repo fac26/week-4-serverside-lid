@@ -33,7 +33,7 @@ function addFilmForm(errors = {}, values = {}) {
   </div>
   <div>
     <label for="year">Year Released</label> 
-    <input name="year" id="year" required value="${values.year ? sanitize(values.year) : ''}">
+    <input name="year" type="number" id="year" required value="${values.year ? sanitize(values.year) : ''}">
     ${validation(errors.year)}
   </div>
   <div>
@@ -41,6 +41,10 @@ function addFilmForm(errors = {}, values = {}) {
     <input name="director" id="director" required value="${values.director ? sanitize(values.director) : ''}">
     ${validation(errors.director)}
   </div>
+  <div>
+  <label for="image">Upload image</label>
+  <input name="imagename" id="image" type="file"> 
+</div>
   <button class="Button" type="Submit">Add &plus;</button>
   </form>
   `;
