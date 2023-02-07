@@ -1,0 +1,10 @@
+const { removeSession } = require("../model/sessions");
+
+function postSignOut(request, response) {
+  const sid = request.signedCookies.sid;
+  removeSession(sid);
+  response.clearCookie("sid");
+  response.redirect("/");
+}
+
+module.exports = { postSignOut };
