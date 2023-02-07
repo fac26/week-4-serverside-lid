@@ -4,7 +4,7 @@
 const bcrypt = require('bcryptjs');
 
 const { html } = require('../templates/html');
-const { signupLogin } = require('../templates/forms');
+const { signupLogin, sanitize } = require('../templates/forms');
 
 // const { createUser } = require('../model/users');
 // const { createSession } = require('../model/sessions');
@@ -49,9 +49,6 @@ function postSignUp(req, res) {
     }
 }
 
-function sanitize(input) {
-    return input.replace(/</g, '&lt;');
-}
 
 module.exports = { getSignUp, postSignUp };
 

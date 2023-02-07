@@ -33,4 +33,4 @@ function validation(message) {
         return '';
     }
 }
-module.exports = { signupLogin }
+module.exports = { signupLogin, sanitize }

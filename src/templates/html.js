@@ -25,7 +25,7 @@ function html(title, nav, content) {
 function navBar(/* session */) {
   return /*html*/ `<ul class="nav-bar">
   <li><a href='/'>Home</a>
-  <li><a href="/add-secret">Add new secret</a><form method="POST" action="/log-out">
+  <li><a href="/add-film">Add your favourite film!</a><form method="POST" action="/log-out">
   <li><button class="Button">Log out</button></form>
   </ul>`;
 }
