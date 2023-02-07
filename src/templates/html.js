@@ -22,11 +22,16 @@ function html(title, nav, content) {
 </html>
 `;
 }
-function navBar(/* session */) {
+function navBar(session) {
   return /*html*/ `<ul class="nav-bar">
   <li><a href='/'>Home</a>
-  <li><a href="/add-film">Add your favourite film!</a><form method="POST" action="/log-out">
-  <li><button class="Button">Log out</button></form>
+  ${
+    session
+      ? /*html*/ `<li><a href="/add-secret">Add an image from your favourite film!</a></li>
+                    <li><form method="POST" action="/log-out"><button class="Button">Log out</button></form></li>`
+      : /*html*/ `<li><a href="/sign-up">Sign up</a></li>
+                    <li><a href="/sign-in">log in</a></li>`
+  }
   </ul>`;
 }
 

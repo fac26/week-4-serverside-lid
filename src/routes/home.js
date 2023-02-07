@@ -5,7 +5,7 @@ const { html, navBar } = require('../templates/html');
 function getHomePage(req, res) {
     const title = 'Favourite Movie Stills';
     //const movieStillsArray = stillsFromDB.listStills();
-    const nav = navBar(/* req.session */); //we pass on session data once this is set up in db
+    const nav = navBar(req.session); //we pass on session data once this is set up in db
     const content = 'Movie images go here once setup';
     //const content = movieCardTemplate(req.session, movieStillsArray);
     const homePage = html(title, nav, content);
