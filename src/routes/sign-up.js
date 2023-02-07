@@ -53,7 +53,7 @@ function sanitize(input) {
     return input.replace(/</g, '&lt;');
 }
 
-module.exports = { getSignUp, postSignUp };
+module.exports = { getSignUp, postSignUp, sanitize };
 
 //add npm run seed function in package.json
 //dependency bcryptjs
