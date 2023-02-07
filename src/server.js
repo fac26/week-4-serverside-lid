@@ -22,7 +22,7 @@ server.use(sessions);
 server.get("/", getHomePage);
 
 // add sign-up callback function
-server.get("/sign-up", getSignUp); //html page
+server.get("/sign-up", confirmLogin, getSignUp); //html page
 server.post("/sign-up", bodyParser, postSignUp);
 
 // add sign-in callback function
