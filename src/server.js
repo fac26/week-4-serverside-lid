@@ -38,7 +38,6 @@ const server = express();
 //   res.send('Film added to database!');
 // });
 
-
 server.use(staticHandler);
 server.use(cookies);
 server.use(sessions);
@@ -54,6 +53,7 @@ server.get("/sign-in", getSignin);
 server.post("/sign-in", bodyParser, postSignin);
 
 server.get("/add-film", confirmLoggedOut, getAddFilmForm);
+server.post("/add-film", bodyParser, postAddFilmForm);
 
 // add log-out callback function
 server.post("/log-out", postSignOut);
