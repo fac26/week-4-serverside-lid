@@ -28,7 +28,7 @@ function reset() {
     DELETE FROM photos;
     DELETE FROM users;
     DELETE FROM sessions;
-    DELETE FROM sqlite_sequence WHERE name IN ('films', 'genres', 'photos', 'users', 'sessions');
+    DELETE FROM sqlite_sequence WHERE name IN ('films', 'genres', 'photos', 'users');
   `);
 }
 
