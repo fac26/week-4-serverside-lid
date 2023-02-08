@@ -2,13 +2,26 @@ PRAGMA foreign_keys = OFF;
 
 BEGIN;
 
--- INSERT INTO films (id, name, year, director, genre_id, photo) VALUES
--- (1, 'Star Wars', 1977, 'George Lucas', 1, ),
--- (2, 'Jaws', 1973, 'Steven Spielberg', 2),
--- (3, 'Schindlers List', 1993, 'Steven Spielberg', 3),
--- (4, 'The Lord of the Rings: The Return of the King', 2003, 'Peter Jackson', 4),
--- (5, 'JFK', 1991, 'Oliver Stone', 5)
--- ON CONFLICT DO NOTHING;
+INSERT INTO
+  films (id, name, year, director, genre_id)
+VALUES
+  (1, 'Star Wars', 1977, 'George Lucas', 1),
+  (2, 'Jaws', 1973, 'Steven Spielberg', 2),
+  (
+    3,
+    'Schindlers List',
+    1993,
+    'Steven Spielberg',
+    3
+  ),
+  (
+    4,
+    'The Lord of the Rings: The Return of the King',
+    2003,
+    'Peter Jackson',
+    4
+  ),
+  (5, 'JFK', 1991, 'Oliver Stone', 5) ON CONFLICT DO NOTHING;
 
 INSERT INTO
   genres (id, genre_name)
@@ -23,7 +36,6 @@ VALUES
 -- (1, 'photo.png', 1, 1),
 -- (2, 'photo.png', 2, 2)
 -- ON CONFLICT DO NOTHING;
-
 INSERT INTO
   users (id, email, hash, created_at)
 VALUES

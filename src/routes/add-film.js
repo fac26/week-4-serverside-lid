@@ -18,7 +18,7 @@ function getAddFilmForm(req, res) {
 //adding post /add-film so handleaddfilm
 //stretch-are we validating image upload too? to check its only image not a file
 function postAddFilmForm(req, res) {
-  let { name, year, director, genre_id, image } = req.body;
+  let { name, year, director, genre_id } = req.body;
   const errors = {};
   if (!name) {
     errors.name = 'Please add film name';
@@ -37,7 +37,7 @@ function postAddFilmForm(req, res) {
     res.send(body);
 } else {
     const DBsession = getSession(req.session.id);
-    addFilm(name, year, director, 1, image, DBsession.user_id)
+    addFilm(name, year, director, 1, DBsession.user_id)
     res.redirect(`/`);
 }
 }

@@ -3,9 +3,10 @@
 //if an error don't redirect
 const bcrypt = require('bcryptjs');
 
-const { html } = require('../templates/html');
+const { html, existingUser } = require('../templates/html');
 const { signupLogin } = require('../templates/forms');
 const { sanitize } = require('../model/sanitize-validate');
+const { getUserByEmail} = require('../model/users');
 
 const { createUser } = require('../model/users');
 const { createSession } = require('../model/sessions');
@@ -21,7 +22,8 @@ function getSignUp(req, res) {
 
 function postSignUp(req, res) {
     let { email, password } = req.body;
-
+    const user = getUserByEmail(email);
+    if (user) return res.send(existingUser());
     if (!email || !password) {
         res.status(400).send('Bad input');
     } else {

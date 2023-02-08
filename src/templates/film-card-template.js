@@ -9,7 +9,7 @@ function filmCardsTemplate(session, filmsFromDB) {
   return filmsUL;
 }
 
-function filmCardTemplate(film, session = {}) {
+function filmCardTemplate(film, session) {
   const filmTemplate = /*html*/ `
         <li class="film">
         <h4>${film.name}</h4>
@@ -17,9 +17,9 @@ function filmCardTemplate(film, session = {}) {
     `;
   if (checkCurrentUser(film, session) === false) {
     return /*html*/ `
-        ${filmTemplate}
-    </li>
-        `;
+      ${filmTemplate}
+  </li>
+      `;
   }
   return /*html*/ `
         ${filmTemplate}
