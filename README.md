@@ -15,4 +15,17 @@ Contributors: Dominic, Iman and Laura
 - [ ] Handle errors and inform the user
 - [ ] Styled appropriately
 
+### Schema
+
+Films DB:
+
+| id | name                                         | year      | director  | genre_id |
+|:--:|:----------------------------------------:    |:-------------:|:------:   |:---------:|                                                                             
+| 1  | Star Wars                                    | 1977          | George Lucas         | 1         |
+| 2  | Jaws                                         | 1973          |    | 1         |
+| 3  | Schindler's List                             | 1993          |    | 2         |                              
+| 4  | The Lord of the Rings: The Return of the King| 2003          |       | 1978   | 2         |                   
+| 5  | JFK                                          | 1991          | 3         |     |
+
+
 
