@@ -43,7 +43,7 @@ function addFilmForm(errors = {}, values = {}) {
   </div>
   <div>
   <label for="image">Upload image</label>
-  <input name="imagename" id="image" type="file"> 
+  <input name="image" id="image" type="file"> 
 </div>
   <button class="Button" type="Submit">Add &plus;</button>
   </form>

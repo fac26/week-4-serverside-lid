@@ -2,8 +2,8 @@ PRAGMA foreign_keys = OFF;
 
 BEGIN;
 
-INSERT INTO films (id, name, year, director, genre_id) VALUES
-(1, 'Star Wars', 1977, 'George Lucas', 1),
+INSERT INTO films (id, name, year, director, genre_id, photo) VALUES
+(1, 'Star Wars', 1977, 'George Lucas', 1, ),
 (2, 'Jaws', 1973, 'Steven Spielberg', 2),
 (3, 'Schindlers List', 1993, 'Steven Spielberg', 3),
 (4, 'The Lord of the Rings: The Return of the King', 2003, 'Peter Jackson', 4),
