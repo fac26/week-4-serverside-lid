@@ -1,8 +1,7 @@
 const server = require("../src/server.js");
-const db = require("../database/db.js");
-const { createUser, getUserByUsername } = require("../model/user");
-const { getSession, createSession } = require("../model/session");
-const { displayPosts } = require("../model/posts.js");
+const db = require("../src/database/db.js");
+const { createUser, getUserByUsername } = require("../src/model/users");
+const { getSession, createSession } = require("../src/model/sessions");
 
 async function request(pathname, options = {}) {
   const app = server.listen(0);
@@ -40,5 +39,4 @@ module.exports = {
   getUserByUsername,
   getSession,
   createSession,
-  displayPosts,
 };

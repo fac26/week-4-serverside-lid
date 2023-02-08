@@ -9,7 +9,10 @@
     "dev-win": "SET DB_FILE=db.sqlite & SET COOKIE_SECRET=secretcookie & nodemon src/index.js",
     "seed": "DB_FILE=db.sqlite node src/database/seed.js",
     "seed-win": "SET DB_FILE=db.sqlite & node src/database/seed.js",
-    "test:1": "DB_FILE=test.sqlite COOKIE_SECRET=abc node --no-warnings test/1.test.js"
+    "test:1": "DB_FILE=test.sqlite COOKIE_SECRET=abc node --no-warnings tests/one.test.js",
+    "test:1-win": "SET DB_FILE=test.sqlite & COOKIE_SECRET=abc & node tests/one.test.js",
+    "test": "DB_FILE=test.sqlite COOKIE_SECRET=abc node --no-warnings tests/one.test.js"
+
   },
   "keywords": [],
   "author": "",

@@ -19,7 +19,7 @@ test("createSession can create a new account", async () => {
   const session_id = createSession(user.id);
   assert.ok(
     session_id,
-    `Expected: createSession to return sid, and received "${session_id}".`
+    `Expected: createSession to return session id, and received "${session_id}".`
   );
 
   assert.ok(
