@@ -7,8 +7,8 @@ const db = require("../database/db");
 //the films table also accepts the user_id (to know the user signed in can add their film)
 
 const add_film = db.prepare(`
-    INSERT INTO films (name, year, director, genre_id)
-    VALUES ($name, $year, $director, $genre_id);
+    INSERT INTO films (name, year, director, genre_id, user_id)
+    VALUES ($name, $year, $director, $genre_id, $user_id);
 `);
 
 //so when the user fills in the add film form:
@@ -20,8 +20,8 @@ const add_film = db.prepare(`
 //a new row is created in the film table that shows: [5, 'hunger games', 2012, Gary Ross, Science Fiction]
 //then two new rows is created in the photos table that shows [1, 'katniss.png', 5, 1], [2, 'peta.png', 5, 1] (first user so user_id is 1)
 
-function addFilm(name, year, director, genre_id) {
-  return add_film.run({ name, year, director, genre_id });
+function addFilm(name, year, director, genre_id, user_id) {
+  return add_film.run({ name, year, director, genre_id, user_id });
 }
 //you're using run instead of get because you arent returning any rows, get makes sense for displaying not inputting
 
@@ -31,7 +31,8 @@ const view_all_films = db.prepare(`
     films.name,
     films.year,
     films.director,
-    films.genre_id
+    films.genre_id,
+    films.user_id
     FROM films
 `);
 
@@ -39,6 +40,14 @@ function listFilms() {
   return view_all_films.all();
 }
 
-console.log(listFilms());
+//delete film from db
+const delete_film = db.prepare(`
+    DELETE FROM films
+    WHERE id = ?
+`);
 
-module.exports = { addFilm, listFilms };
+function deleteFilm(filmid) {
+  delete_film.run(filmid);
+}
+
+module.exports = { addFilm, listFilms, deleteFilm };

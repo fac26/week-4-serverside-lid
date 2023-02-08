@@ -9,7 +9,7 @@ function filmCardsTemplate(session, filmsFromDB) {
   return filmsUL;
 }
 
-function filmCardTemplate(film, session) {
+function filmCardTemplate(film, session = {}) {
   const filmTemplate = /*html*/ `
         <li class="film">
         <h4>${film.name}</h4>
@@ -20,10 +20,11 @@ function filmCardTemplate(film, session) {
       ${filmTemplate}
   </li>
       `;
+  } else {
+    return /*html*/ `
+    ${filmTemplate}
+    ${deleteButton(film)}`;
   }
-  return /*html*/ `
-        ${filmTemplate}
-        ${deleteButton(film)}`;
 }
 
 function deleteButton(film) {

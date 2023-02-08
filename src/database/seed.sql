@@ -3,25 +3,27 @@ PRAGMA foreign_keys = OFF;
 BEGIN;
 
 INSERT INTO
-  films (id, name, year, director, genre_id)
+  films (id, name, year, director, genre_id, user_id)
 VALUES
-  (1, 'Star Wars', 1977, 'George Lucas', 1),
-  (2, 'Jaws', 1973, 'Steven Spielberg', 2),
+  (1, 'Star Wars', 1977, 'George Lucas', 1, 2),
+  (2, 'Jaws', 1973, 'Steven Spielberg', 2, 2),
   (
     3,
     'Schindlers List',
     1993,
     'Steven Spielberg',
-    3
+    3,
+    2
   ),
   (
     4,
     'The Lord of the Rings: The Return of the King',
     2003,
     'Peter Jackson',
-    4
+    4,
+    2
   ),
-  (5, 'JFK', 1991, 'Oliver Stone', 5) ON CONFLICT DO NOTHING;
+  (5, 'JFK', 1991, 'Oliver Stone', 5, 2) ON CONFLICT DO NOTHING;
 
 INSERT INTO
   genres (id, genre_name)

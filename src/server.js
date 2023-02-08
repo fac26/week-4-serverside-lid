@@ -13,6 +13,7 @@ const { getSignin, postSignin } = require("./routes/log-in");
 const { getSession, removeSession } = require("./model/sessions"); //getSession(sid), removeSession(sid);
 const { getAddFilmForm, postAddFilmForm } = require("./routes/add-film");
 const { postSignOut } = require("./routes/log-out");
+const { handleDeleteFilm } = require('./routes/delete-film');
 // const db = require("./database/db");
 
 const server = express();
@@ -55,8 +56,13 @@ server.post("/sign-in", bodyParser, postSignin);
 server.get("/add-film", confirmLoggedOut, getAddFilmForm);
 server.post("/add-film", bodyParser, postAddFilmForm);
 
+// delete
+server.post('/delete-film/:id', handleDeleteFilm);
+
 // add log-out callback function
 server.post("/log-out", postSignOut);
+
+
 
 function sessions(req, res, next) {
   const sid = req.signedCookies.sid; //undefined if there is not a sid

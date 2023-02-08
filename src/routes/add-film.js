@@ -11,7 +11,7 @@ function getAddFilmForm(req, res) {
   const title = "Add your film!";
   const content = addFilmForm();
   const nav = navBar(req.session);
-  const body = html(title, nav, content); 
+  const body = html(title, nav, content);
   res.send(body);
 }
 
@@ -21,26 +21,25 @@ function postAddFilmForm(req, res) {
   let { name, year, director, genre_id } = req.body;
   const errors = {};
   if (!name) {
-    errors.name = 'Please add film name';
+    errors.name = "Please add film name";
   }
   if (!year) {
-    errors.year = 'Please add film year';
+    errors.year = "Please add film year";
   }
   if (!director) {
-    errors.director = 'Please add the name of director';
+    errors.director = "Please add the name of director";
   }
   if (Object.keys(errors).length > 0) {
-    const title = 'Add your film!';
-    const content = addFilmForm(errors); 
+    const title = "Add your film!";
+    const content = addFilmForm(errors);
     const nav = navBar(req.session);
-    const body = html(title, nav, content); 
+    const body = html(title, nav, content);
     res.send(body);
-} else {
+  } else {
     const DBsession = getSession(req.session.id);
-    addFilm(name, year, director, 1, DBsession.user_id)
+    addFilm(name, year, director, 1, DBsession.user_id);
     res.redirect(`/`);
+  }
 }
-}
-
 
 module.exports = { getAddFilmForm, postAddFilmForm };

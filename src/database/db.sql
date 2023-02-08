@@ -5,7 +5,8 @@ CREATE TABLE IF NOT EXISTS films (
     name TEXT UNIQUE,
     year INTEGER,
     director TEXT,
-    genre_id INTEGER
+    genre_id INTEGER,
+    user_id INTEGER REFERENCES users(id)
 );
 
 CREATE TABLE IF NOT EXISTS genres (
@@ -19,7 +20,6 @@ CREATE TABLE IF NOT EXISTS genres (
 --     film_id INTEGER REFERENCES films(id),
 --     user_id INTEGER REFERENCES users(id)
 -- );
-
 CREATE TABLE IF NOT EXISTS users (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     email TEXT UNIQUE,
