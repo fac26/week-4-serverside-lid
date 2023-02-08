@@ -44,3 +44,4 @@ function addFilm(name, year, director, genre_id, image_path, user_id) {
 
 
 module.exports = { listAllFilms, getFilmsbyUser, addFilm };
+

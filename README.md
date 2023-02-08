@@ -1,8 +1,10 @@
-## Films
+## Week 4 - Server Side App
+
+Contributors: Dominic, Iman and Laura
 
 A place to post about your favourite films :)
 
-## Roles
+###### Our app allows the user to create an account and log-in subsequently. The app's purpose is to allow the user to upload stills from their favourite movie. 
 
 
 ## Setup
@@ -19,15 +21,27 @@ Run ```npm run dev (npm run devWindow for Windows)``` to start the server.
 
 This uses the nodemon library to auto-restart the server when you save changes.
 
-## Database
+### Criteria
 
-This project uses Sqlite3 through the use of the common library `better-sqlite3`.
+- [ ] Express server
+- [ ] Well-organised modular codebase
+- [ ] SQLite database
+- [ ] Hosted on Fly.io
+- [ ] One of the spike topics
+- [ ] Validate user-submitted data on the server
+- [ ] Handle errors and inform the user
+- [ ] Styled appropriately
 
-## Acceptance Criteria
-- [x] Express server
-- [x] Well-organised modular codebase
-- [x] SQLite database
-- [x] One of the spike topics
-- [x] Validate user-submitted data on the server
-- [x] Handle errors and inform the user
-- [x] Styled appropriately
+### Schema
+
+Films DB:
+
+| id | name                                         | year          | director    | genre_id  |
+|:--:|:----------------------------------------:    |:-------------:|:-----------:|:---------:|                                                                     
+| 1  | Star Wars                                    | 1977          | George Lucas| 1         |
+| 2  | Jaws                                         | 1973          |             | 2         |
+| 3  | Schindler's List                             | 1993          |             | 3         |                             
+| 4  | The Lord of the Rings: The Return of the King| 2003          |             | 4         |                   
+| 5  | JFK                                          | 1991          |             | 5         |
+
+
