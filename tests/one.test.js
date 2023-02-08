@@ -9,12 +9,11 @@ test("createSession can create a new account", async () => {
   // clears the db
   reset();
   // create a user
-  const user = createUser("Test", "abc");
-  const newUser = { username: "Dominic123", hash: "asdf" };
-  createUser(newUser);
+  const newUser = { email: "dominic123@bigint.com", hash: "asdf" };
+  const user = createUser(newUser);
   // Retrieve User
-  const { username } = getUserByEmail("Dominic123");
-  assert.match(username, /Dominic123/);
+  const { email } = getUserByEmail("dominic123@bigint.com");
+  assert.match(email.email, /Dominic123/);
   // create a session id
   const session_id = createSession(user.id);
   assert.ok(
