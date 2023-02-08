@@ -2,7 +2,7 @@
 
 Contributors: Dominic, Iman and Laura
 
-A place to post about your favourite films :)
+###### A place to post about your favourite films :)
 
 ###### Our app allows the user to create an account and log-in subsequently. The app's purpose is to allow the user to upload stills from their favourite movie. 
 
