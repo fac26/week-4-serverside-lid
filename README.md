@@ -19,13 +19,13 @@ Contributors: Dominic, Iman and Laura
 
 Films DB:
 
-| id | name                                         | year          | director  | genre_id |
-|:--:|:----------------------------------------:    |:-------------:|:------:   |:---------:|                                                                             
-| 1  | Star Wars                                    | 1977          | George Lucas         | 1         |
-| 2  | Jaws                                         | 1973          |    | 1         | 2
-| 3  | Schindler's List                             | 1993          |    | 2         | 3                             
-| 4  | The Lord of the Rings: The Return of the King| 2003          |       | 1978   | 4         |                   
-| 5  | JFK                                          | 1991          |               | |
+| id | name                                         | year          | director    | genre_id  |
+|:--:|:----------------------------------------:    |:-------------:|:-----------:|:---------:|                                                                     
+| 1  | Star Wars                                    | 1977          | George Lucas| 1         |
+| 2  | Jaws                                         | 1973          |             | 2         |
+| 3  | Schindler's List                             | 1993          |             | 3         |                             
+| 4  | The Lord of the Rings: The Return of the King| 2003          |             | 4         |                   
+| 5  | JFK                                          | 1991          |             | 5         |
   
 
 
