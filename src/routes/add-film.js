@@ -1,6 +1,7 @@
 const { html, navBar } = require("../templates/html"); //all pages will have the navbar;
 const { addFilmForm } = require("../templates/forms");
 const { addFilm } = require("../model/films");
+const { getSession } = require("../model/sessions");
 
 //for get req-diplay form for user to add new secret
 function getAddFilmForm(req, res) {
