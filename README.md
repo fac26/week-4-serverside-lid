@@ -15,6 +15,13 @@ Contributors: Dominic, Iman and Laura
 - [ ] Handle errors and inform the user
 - [ ] Styled appropriately
 
+### User Stories
+As a user, I want to be able to sign up for the application using my GitHub account.
+As a user, I want to be able to log into the application using GitHub account.
+As a user, I want to be able to submit data to the application, and have it validated on the server-side.
+As a user, I want to receive informative error messages if my data submission is invalid.
+As a user, I want to have a professional and visually appealing user-interface when using the application.
+
 ### Schema
 
 Films DB:
