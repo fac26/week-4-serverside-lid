@@ -70,7 +70,8 @@ function confirmLoggedOut(req, res, next) {
   next();
 }
 
-function emailDuplicationCheck(email, request, response, next) {
+function emailDuplicationCheck(request, response, next) {
+  let email = request.body.email;
   const emailExists = getUserByEmail(email) || null; //{id.hash..}
   if (emailExists) {
     return response.status(400).send("<h1>This email already exists</h1>");
