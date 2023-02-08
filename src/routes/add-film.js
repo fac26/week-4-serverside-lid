@@ -13,7 +13,7 @@ function getAddFilmForm(req, res) {
   const content = addFilmForm();
   const nav = navBar(req.session);
   const body = html(title, nav, content); 
-  
+  // const filmsList = getFilms(DBsession);
   res.send(body);
 }
 
@@ -38,46 +38,12 @@ function postAddFilmForm(req, res) {
     const body = html(title, nav, content); 
     res.send(body);
 } else {
-    const MAX_SIZE = 1000 * 1000 * 5;
-    const ALLOWED_TYPES = ['image/jpeg', 'image/png'];
-    
-
-    // file.mimetype tells us what kind of file it was
-    if (!ALLOWED_TYPES.includes(file.mimetype)) {
-      res.status(400).send("<h1>File upload error</h1><p>Please upload an image file</p>");
-    }
-    // file.size tells us how big the file was (in bytes)
-    if (file.size > MAX_SIZE) {
-      res.status(400).send("<h1>File upload error</h1><p>Profile picture must be < 5MB</p>");
-    }
-
-    // file.buffer contains the actual raw file contents we want
-
+    const filmImage = req.file.path.replace("public", "..");
+    console.log(filmImage);
     const DBsession = getSession(req.session.id);
-    addFilm(name, year, director, 1, file.buffer, DBsession.user_id)
+    addFilm(name, year, director, 1, filmImage, DBsession.user_id)
     res.redirect(`/`);
 }
 }
-
-
-// server.post("/", upload.single("avatar"), (req, res) => {
-//   const file = req.file;
-
-//   // file.mimetype tells us what kind of file it was
-//   if (!ALLOWED_TYPES.includes(file.mimetype)) {
-//     res.status(400).send("<h1>File upload error</h1><p>Please upload an image file</p>");
-//   }
-//   // file.size tells us how big the file was (in bytes)
-//   if (file.size > MAX_SIZE) {
-//     res.status(400).send("<h1>File upload error</h1><p>Profile picture must be < 5MB</p>");
-//   } else {
-//     const { email, name } = req.body;
-
-//     // file.buffer contains the actual raw file contents we want
-//     model.createUser(email, name, file.buffer);
-//     res.redirect("/");
-//   }
-// });
-
 
 module.exports = { getAddFilmForm, postAddFilmForm };

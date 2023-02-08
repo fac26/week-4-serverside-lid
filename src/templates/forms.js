@@ -25,7 +25,7 @@ function signupLogin(path, errors = {}, values= {}) {
 
 function addFilmForm(errors = {}, values = {}) {
   const formhtml = /*html*/ `
-  <form method="POST" action="/add-film">
+  <form method="POST" action="/add-film" enctype="multipart/form-data">
   <div>
     <label for="name">Film Title</label> 
     <input name="name" id="name" required value="${values.name ? sanitize(values.name) : ''}">

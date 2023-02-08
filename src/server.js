@@ -3,7 +3,7 @@ const cookieParser = require("cookie-parser");
 const cookies = cookieParser(process.env.COOKIE_SECRET); //process.env.COOKIE_SECRET
 const bodyParser = express.urlencoded({ extended: false });
 const multer = require("multer");
-const upload = multer({ dest: "./public/uploads" });
+const upload = multer({ dest: "public/uploads" });
 
 const staticHandler = express.static("public");
 

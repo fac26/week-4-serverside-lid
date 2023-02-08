@@ -1,0 +1,33 @@
+BEGIN;
+
+CREATE TABLE IF NOT EXISTS users (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    email TEXT UNIQUE,
+    hash TEXT,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS sessions (
+    id TEXT PRIMARY KEY,
+    user_id INTEGER REFERENCES users(id),
+    expires_at DATETIME NOT NULL,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS films (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT UNIQUE,
+    year INTEGER,
+    director TEXT,
+    genre_id INTEGER REFERENCES genres(id),
+    image_path TEXT,
+    user_id INTEGER REFERENCES users(id),
+    CHECK (year > (0))
+);
+
+CREATE TABLE IF NOT EXISTS genres (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    genre_name TEXT UNIQUE NOT NULL
+);
+
+COMMIT;
