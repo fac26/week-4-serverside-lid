@@ -5,7 +5,7 @@ const bcrypt = require("bcryptjs");
 
 const { html, existingUser } = require("../templates/html");
 const { signupLogin } = require("../templates/forms");
-const { sanitize } = require("../model/sanitize-validate");
+// const { sanitize } = require("../model/sanitize-validate");
 
 const { createUser, getUserByEmail } = require("../model/users");
 const { createSession } = require("../model/sessions");
