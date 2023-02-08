@@ -28,11 +28,15 @@ function navBar(session) {
   ${
     session
       ? /*html*/ `<li><a href="/add-film">Add an image from your favourite film!</a></li>
-                    <li><form method="POST" action="/log-out"><button class="Button">Log out</button></form></li>`
+                  <li><form method="POST" action="/log-out"><button class="Button">Log out</button></form></li>`
       : /*html*/ `<li><a href="/sign-up">Sign up</a></li>
-                    <li><a href="/sign-in">log in</a></li>`
+                  <li><a href="/sign-in">log in</a></li>`
   }
   </ul>`;
 }
 
-module.exports = { html, navBar };
+function existingUser() {
+  return `<span>This email already exists on our database</span>`;
+}
+
+module.exports = { html, navBar, existingUser };
