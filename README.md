@@ -63,3 +63,8 @@ This uses the nodemon library to auto-restart the server when you save changes.
 | 2  | photo.png                                    | 2             | 2              |
 
 - Users DB
+
+| id | email                                       | hash          | created_at          | 
+|:--:|:----------------------------------------:   |:-------------:|:--------------: |                                                                     
+| 1  | a@example.com                               | ....          | date            |
+| 2  | a@example.com                               | ....          | date            |
