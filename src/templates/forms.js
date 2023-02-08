@@ -42,9 +42,9 @@ function addFilmForm(errors = {}, values = {}) {
     ${validation(errors.director)}
   </div>
   <div>
-  <label for="image">Upload image</label>
-  <input name="imagename" id="image" type="file"> 
-</div>
+    <label for="image">Film still</label>
+    <input type="file" id="image" name="image">
+  </div>
   <button class="Button" type="Submit">Add &plus;</button>
   </form>
   `;

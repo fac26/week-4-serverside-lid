@@ -1,5 +1,6 @@
 const express = require("express");
 const cookieParser = require("cookie-parser");
+// const multer = require("multer");
 const cookies = cookieParser(process.env.COOKIE_SECRET); //process.env.COOKIE_SECRET
 const bodyParser = express.urlencoded({ extended: false });
 
@@ -12,8 +13,31 @@ const { getSignin, postSignin } = require("./routes/log-in");
 const { getSession, removeSession } = require("./model/sessions"); //getSession(sid), removeSession(sid);
 const { getAddFilmForm, postAddFilmForm } = require("./routes/add-film");
 const { postSignOut } = require("./routes/log-out");
+// const db = require("./database/db");
 
 const server = express();
+
+// const storage = multer.diskStorage({
+//   destination: function (req, file, cb) {
+//     cb(null, './uploads/');
+//   },
+//   filename: function (req, file, cb) {
+//     cb(null, file.fieldname + '-' + Date.now());
+//   }
+// });
+
+// const upload = multer({ storage: storage });
+
+// server.post('/add-film', upload.single('image'), (req, res) => {
+//   const insertFilm = db.prepare(`
+//     INSERT INTO films (title, image)
+//     VALUES (?, ?)
+//   `);
+//   insertFilm.run(req.body.title, req.file.path);
+
+//   res.send('Film added to database!');
+// });
+
 
 server.use(staticHandler);
 server.use(cookies);
@@ -30,7 +54,6 @@ server.get("/sign-in", getSignin);
 server.post("/sign-in", bodyParser, postSignin);
 
 server.get("/add-film", confirmLoggedOut, getAddFilmForm);
-server.post("/add-film", bodyParser, postAddFilmForm);
 
 // add log-out callback function
 server.post("/log-out", postSignOut);
