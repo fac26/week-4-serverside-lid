@@ -36,12 +36,25 @@ This uses the nodemon library to auto-restart the server when you save changes.
 
 Films DB:
 
-| id | name                                         | year          | director    | genre_id  |
-|:--:|:----------------------------------------:    |:-------------:|:-----------:|:---------:|                                                                     
-| 1  | Star Wars                                    | 1977          | George Lucas| 1         |
-| 2  | Jaws                                         | 1973          |             | 2         |
-| 3  | Schindler's List                             | 1993          |             | 3         |                             
-| 4  | The Lord of the Rings: The Return of the King| 2003          |             | 4         |                   
-| 5  | JFK                                          | 1991          |             | 5         |
+| id | name                                         | year          | director        | genre_id  |
+|:--:|:----------------------------------------:    |:-------------:|:---------------:|:---------:|                                                                     
+| 1  | Star Wars                                    | 1977          | George Lucas    | 1         |
+| 2  | Jaws                                         | 1973          | Steven Spielberg| 2         |
+| 3  | Schindler's List                             | 1993          | Steven Spielberg| 3         |                             
+| 4  | The Lord of the Rings: The Return of the King| 2003          | Peter Jackson   | 4         |                   
+| 5  | JFK                                          | 1991          | Oliver Stone    | 5         |
+
+- Genres DB
+
+| id | name                                         | 
+|:--:|:----------------------------------------:    |                                                                    
+| 1  | Science Fiction                              |
+| 2  | Horror                                       |
+| 3  | Drama                                        |
+| 4  | Fantasy                                      |
+| 5  | Politics                                     |
 
 
+- Photos DB
+
+- Users DB
