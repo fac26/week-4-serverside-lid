@@ -1,8 +1,9 @@
 const test = require("node:test");
 const assert = require("node:assert");
-const { sid } = require("../src/routes/sign-up");
+const { createSession, getSession } = require("../src/model/sessions");
+const { createUser } = require("../src/model/users");
 
-const { createUser, createSession, getSession, reset } = require("./helper.js");
+const { reset } = require("./helper.js");
 
 test("createSession can create a new account", async () => {
   // clears the db
@@ -10,18 +11,18 @@ test("createSession can create a new account", async () => {
   // create a user
   const user = createUser("Test", "abc");
   // create a session id
-  const sid = createSession(user.id);
+  const session_id = createSession(user.id);
   assert.ok(
-    sid,
-    `Expected: createSession to return sid, and received "${sid}".`
+    session_id,
+    `Expected: createSession to return sid, and received "${session_id}".`
   );
 
   assert.ok(
-    sid.length > 12,
-    `Expected: sid to be more than 12 characters, and received sid of ${sid.length} characters.`
+    session_id.length > 12,
+    `Expected: sid to be more than 12 characters, and received sid of ${session_id.length} characters.`
   );
 
-  const session = getSession(sid);
+  const session = getSession(session_id);
   assert.equal(
     session.user_id,
     user.id,

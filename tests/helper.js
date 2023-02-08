@@ -23,10 +23,12 @@ function get_sid(headers) {
 
 function reset() {
   db.exec(/*sql*/ `
-    DELETE FROM posts;
-    DELETE FROM sessions;
+    DELETE FROM films;
+    DELETE FROM genres;
+    DELETE FROM photos;
     DELETE FROM users;
-    DELETE FROM sqlite_sequence WHERE name IN ('posts', 'sessions', 'users');
+    DELETE FROM sessions;
+    DELETE FROM sqlite_sequence WHERE name IN ('films', 'genres', 'photos', 'users', 'sessions');
   `);
 }
 
