@@ -7,7 +7,7 @@ const db = require('../database/db');
 //the films table also accepts the user_id (to know the user signed in can add their film)
 
 const add_film = db.prepare(`
-    INSERT INTO film (name, year, director, genre_id)
+    INSERT INTO films (name, year, director, genre_id)
     VALUES (?, ?, ?, ?);
 
     INSERT INTO photos (photo, film_id, user_id)
@@ -30,14 +30,14 @@ function addFilm(name, year, director, genre_id, photo, user_id) {
 
 const view_all_films = db.prepare(`
     SELECT
-    film.id, - and this one-need sort function
-    film.name,
-    film.year,
-    film.director,
-    film.genre_id - not sure about this one,
+    films.id, 
+    films.name,
+    films.year,
+    films.director,
+    films.genre_id - not sure about this one,
     photos.photo
-    FROM film
-    JOIN photos WHERE photos.film_id = film.id
+    FROM films
+    JOIN photos WHERE photos.film_id = films.id
 `);
 
 function listFilms() {

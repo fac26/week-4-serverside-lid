@@ -5,7 +5,7 @@ CREATE TABLE IF NOT EXISTS films (
     name TEXT UNIQUE,
     year INTEGER,
     director TEXT,
-    genre_id INTEGER REFERENCES genre(id),
+    genre_id INTEGER REFERENCES genres(id),
     CHECK (year > (0))
 );
 
@@ -17,7 +17,7 @@ CREATE TABLE IF NOT EXISTS genres (
 CREATE TABLE IF NOT EXISTS photos (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     photo VARBINARY(255),
-    film_id INTEGER REFERENCES film(id),
+    film_id INTEGER REFERENCES films(id),
     user_id INTEGER REFERENCES users(id)
 );
 
