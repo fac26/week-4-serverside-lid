@@ -35,4 +35,18 @@ function navBar(session) {
   </ul>`;
 }
 
-module.exports = { html, navBar };
+function existingUser() {
+  return /*html */ `
+    <div class="home_container">
+    <h1>This email already exists on our database</h1>
+    <p>Please either sign up or try to log in</p>
+    <div class="button_container">
+    <a href="/log-in">Log in</a>
+    or
+    <a href="/sign-up">Sign up</a>
+    </div>
+    </div>
+  `;
+}
+
+module.exports = { html, navBar, existingUser };
