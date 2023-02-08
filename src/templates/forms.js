@@ -37,7 +37,7 @@ function signupLogin(path, errors = {}, values = {}) {
 
 function addFilmForm(errors = {}, values = {}) {
   const formhtml = /*html*/ `
-  <form method="POST" action="/add-film">
+  <form method="POST" action="/add-film" enctype="multipart/form-data">
   <div>
     <label for="name">Film Title</label> 
     <input name="name" id="name" required value="${
@@ -61,7 +61,7 @@ function addFilmForm(errors = {}, values = {}) {
   </div>
   <div>
   <label for="image">Upload image</label>
-  <input name="imagename" id="image" type="file"> 
+  <input name="image" id="image" type="file"> 
 </div>
   <button class="Button" type="Submit">Add &plus;</button>
   </form>

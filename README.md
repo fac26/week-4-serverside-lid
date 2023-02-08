@@ -2,7 +2,24 @@
 
 Contributors: Dominic, Iman and Laura
 
+A place to post about your favourite films :)
+
 ###### Our app allows the user to create an account and log-in subsequently. The app's purpose is to allow the user to upload stills from their favourite movie. 
+
+
+## Setup
+
+Make sure you have Git and Node (v18) installed.
+
+Clone this repo and cd into the directory
+
+Run ```npm install``` to install all the dependencies
+
+Run ```npm run seed (npm run seedWindow for Windows)``` to seed the local database. 
+
+Run ```npm run dev (npm run devWindow for Windows)``` to start the server.
+
+This uses the nodemon library to auto-restart the server when you save changes.
 
 ### Criteria
 
@@ -15,13 +32,6 @@ Contributors: Dominic, Iman and Laura
 - [ ] Handle errors and inform the user
 - [ ] Styled appropriately
 
-### User Stories
-As a user, I want to be able to sign up for the application using my GitHub account.
-As a user, I want to be able to log into the application using GitHub account.
-As a user, I want to be able to submit data to the application, and have it validated on the server-side.
-As a user, I want to receive informative error messages if my data submission is invalid.
-As a user, I want to have a professional and visually appealing user-interface when using the application.
-
 ### Schema
 
 Films DB:
@@ -33,6 +43,5 @@ Films DB:
 | 3  | Schindler's List                             | 1993          |             | 3         |                             
 | 4  | The Lord of the Rings: The Return of the King| 2003          |             | 4         |                   
 | 5  | JFK                                          | 1991          |             | 5         |
-  
 
 
