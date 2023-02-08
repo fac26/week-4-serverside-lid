@@ -13,7 +13,21 @@ body {
   background-color: var(--bg-colour);
   background-size: cover;
 }
-
+h1 {
+  font-weight: 700;
+  font-size: 2em;
+  margin-bottom: 1em;
+  text-align: center;
+}
+h4 {
+  font-weight: 700;
+  font-size: 2em;
+  margin-bottom: 1em;
+  text-align: center;
+}
+p {
+  margin-bottom: .5em;
+}
 nav {
   margin-bottom: 3em;
 }
@@ -46,18 +60,8 @@ ul>.films-list {
   margin-bottom: 2rem;
   margin-right: auto;
   margin-left: auto;
-  background-color: whitesmoke;
+  background-color: white;
   text-align: center;
   border-radius: 0.5rem;
   transition: 0.5s ease-in-out;
-}
-
-p {
-  margin-bottom: .5em;
-}
-
-h4 {
-  font-weight: 700;
-  font-size: 2em;
-  margin-bottom: 1em;
 }

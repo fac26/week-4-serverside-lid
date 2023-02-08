@@ -14,6 +14,7 @@ function filmCardTemplate(film, session = {}) {
         <li class="film">
         <h4>${film.name}</h4>
         <p>${film.year}</p>   
+        <p>${film.director}</p> 
     `;
   if (checkCurrentUser(film, session) === false) {
     return /*html*/ `
