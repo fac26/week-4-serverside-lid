@@ -1,5 +1,5 @@
 const { html, navBar } = require('../templates/html');
-// const { movieCardTemplate } = require('../templates/movie-templates');
+const { movieCardTemplate } = require('../templates/movie-templates');
 // const {stillsFromDB} = require('../model/images');
 
 function getHomePage(req, res) {

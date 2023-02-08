@@ -10,7 +10,7 @@ const { getSignUp, postSignUp } = require("./routes/sign-up");
 const { getSignin, postSignin } = require("./routes/log-in");
 
 const { getSession, removeSession } = require("./model/sessions"); //getSession(sid), removeSession(sid);
-const { getAddFilmForm } = require("./routes/add-film");
+const { getAddFilmForm, postAddFilmForm } = require("./routes/add-film");
 const { postSignOut } = require("./routes/log-out");
 
 const server = express();
@@ -30,6 +30,7 @@ server.get("/sign-in", getSignin);
 server.post("/sign-in", bodyParser, postSignin);
 
 server.get("/add-film", confirmLoggedOut, getAddFilmForm);
+server.post("/add-film", bodyParser, postAddFilmForm);
 
 // add log-out callback function
 server.post("/log-out", postSignOut);
@@ -58,7 +59,7 @@ function confirmLogin(req, res, next) {
   next();
 }
 
-//middle ware to be added to add-secret route, not yet in main branch
+//middle ware to be added to add-film route
 function confirmLoggedOut(req, res, next) {
   const isLoggedIn = req.session;
   if (!isLoggedIn) {

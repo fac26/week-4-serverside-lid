@@ -39,6 +39,15 @@ function postSignUp(req, res) {
           httpOnly: true,
         });
 
+                res.status(200).redirect('/');
+            })
+            .catch((err) =>
+                console.log(
+                    'Error from hashing the password, something went wrong with bcrypt.hash',
+                    err
+                )
+            );
+    }
         res.status(200).redirect("/");
       })
       .catch((err) =>
