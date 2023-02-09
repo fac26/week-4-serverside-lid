@@ -3,6 +3,8 @@ const cookieParser = require("cookie-parser");
 // const multer = require("multer");
 const cookies = cookieParser(process.env.COOKIE_SECRET); //process.env.COOKIE_SECRET
 const bodyParser = express.urlencoded({ extended: false });
+const multer = require("multer");
+const upload = multer({ dest: "public/uploads" });
 
 const staticHandler = express.static("public");
 
@@ -54,7 +56,7 @@ server.get("/sign-in", getSignin);
 server.post("/sign-in", bodyParser, postSignin);
 
 server.get("/add-film", confirmLoggedOut, getAddFilmForm);
-server.post("/add-film", bodyParser, postAddFilmForm);
+server.post("/add-film", bodyParser, upload.single("image"), postAddFilmForm);
 
 // delete
 server.post('/delete-film/:id', handleDeleteFilm);

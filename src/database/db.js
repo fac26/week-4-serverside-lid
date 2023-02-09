@@ -16,7 +16,7 @@ const db = new Database(process.env.DB_FILE);
  * It should be safe to run every time
  */
 
-const schemaPath = join(__dirname, "db.sql");
+const schemaPath = join(__dirname, "schema.sql");
 const schema = readFileSync(schemaPath, "utf-8");
 db.exec(schema);
 

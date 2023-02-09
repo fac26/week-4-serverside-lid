@@ -8,7 +8,7 @@ const { signupLogin } = require('../templates/forms');
 const { sanitize } = require('../model/sanitize-validate');
 const { getUserByEmail} = require('../model/users');
 
-const { createUser } = require('../model/users');
+const { createUser, getUserByEmail } = require('../model/users');
 const { createSession } = require('../model/sessions');
 
 function getSignUp(req, res) {
@@ -51,9 +51,7 @@ function postSignUp(req, res) {
     }
 }
 
-
 module.exports = { getSignUp, postSignUp };
-
 
 //add npm run seed function in package.json
 //dependency bcryptjs

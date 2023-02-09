@@ -1,8 +1,6 @@
-//adding film data including pictures
-//then creating a filmname.js file to filter through the films
-
 const db = require("../database/db");
 
+<<<<<<< HEAD
 //add film to db-user enters on the 'POST secret' page their film (including pic, director, year etc)
 //the films table also accepts the user_id (to know the user signed in can add their film)
 
@@ -33,13 +31,25 @@ const view_all_films = db.prepare(`
     films.director,
     films.genre_id,
     films.user_id
+=======
+const view_all_films = db.prepare(`
+    SELECT
+    id, 
+    name,
+    year,
+    director,
+    genre_id,
+    image_path,
+    user_id
+>>>>>>> main
     FROM films
 `);
 
-function listFilms() {
-  return view_all_films.all();
+function listAllFilms() {
+    return view_all_films.all();
 }
 
+<<<<<<< HEAD
 //delete film from db
 const delete_film = db.prepare(`
     DELETE FROM films
@@ -51,3 +61,34 @@ function deleteFilm(filmid) {
 }
 
 module.exports = { addFilm, listFilms, deleteFilm };
+=======
+const get_films = db.prepare(/*sql*/ `
+   SELECT 
+     id,
+     name, 
+     year,
+     director,
+     genre_id,
+     image_path,
+     user_id
+   FROM films 
+   WHERE user_id = ?
+`);
+
+function getFilmsbyUser(user_id) {
+  return get_films.all(user_id);
+}
+
+const add_film = db.prepare(/*sql*/ `
+  INSERT INTO films (name, year, director, genre_id, image_path, user_id)
+  VALUES ($name, $year, $director, $genre_id, $image_path, $user_id)
+  `);
+
+function addFilm(name, year, director, genre_id, image_path, user_id) {
+  return add_film.run({name, year, director, genre_id, image_path, user_id})
+}
+
+
+module.exports = { listAllFilms, getFilmsbyUser, addFilm };
+
+>>>>>>> main

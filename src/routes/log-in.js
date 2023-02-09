@@ -7,8 +7,8 @@ const { signupLogin } = require("../templates/forms.js");
 
 const { html, navBar } = require("../templates/html"); //if causes an error revert to original file structure
 
-const { getUserByEmail } = require('../model/users.js');
-const { createSession } = require('../model/sessions.js');
+const { getUserByEmail } = require("../model/users.js");
+const { createSession } = require("../model/sessions.js");
 
 function getSignin(request, response) {
   const title = "Sign in";
