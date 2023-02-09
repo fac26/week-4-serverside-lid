@@ -36,22 +36,8 @@ function navBar(session) {
 }
 
 function existingUser() {
-<<<<<<< HEAD
-  return /*html */ `
-    <div class="home_container">
-    <h1>This email already exists on our database</h1>
-    <p>Please either sign up or try to log in</p>
-    <div class="button_container">
-    <a href="/log-in">Log in</a>
-    or
-    <a href="/sign-up">Sign up</a>
-    </div>
-    </div>
-  `;
-=======
   return `<span>This email already exists on our database.</span>
   <li><a href="/">Back to Homepage</a></li>`;
->>>>>>> main
 }
 
 module.exports = { html, navBar, existingUser };
