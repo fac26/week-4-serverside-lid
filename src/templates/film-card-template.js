@@ -16,16 +16,16 @@ function filmCardTemplate(film, session = {}) {
         <p>${film.year}</p>   
         <p>${film.director}</p> 
     `;
-  if (checkCurrentUser(film, session) === false) {
-    return /*html*/ `
+    if (!checkCurrentUser(film, session)) {
+        return /*html*/ `
       ${filmTemplate}
   </li>
       `;
-  } else {
-    return /*html*/ `
+    } else {
+        return /*html*/ `
     ${filmTemplate}
     ${deleteButton(film)}`;
-  }
+    }
 }
 
 function deleteButton(film) {
