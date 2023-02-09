@@ -61,3 +61,11 @@ This uses the nodemon library to auto-restart the server when you save changes.
 | 1  | a@example.com                               | ....          | date            |
 | 2  | a@example.com                               | ....          | date            |
 
+- Sessions DB
+
+| id | user_id                                       | expires_at          | created_at          | 
+|:--:|:----------------------------------------:   |:-------------:|:--------------: |                                                                     
+| 1  | 1                               | date            | date
+| 2  | 2                               | date          | date          |
+
+---
