@@ -54,14 +54,6 @@ This uses the nodemon library to auto-restart the server when you save changes.
 | 4  | Fantasy                                      |
 | 5  | Politics                                     |
 
-
-- Photos DB
-
-| id | photo                                        | film_id       | user_id        | 
-|:--:|:----------------------------------------:    |:-------------:|:--------------:|                                                                     
-| 1  | photo.png                                    | 1             | 1              |
-| 2  | photo.png                                    | 2             | 2              |
-
 - Users DB
 
 | id | email                                       | hash          | created_at          | 
