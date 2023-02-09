@@ -1,4 +1,4 @@
-const db = require("../database/db");
+const db = require('../database/db');
 
 const view_all_films = db.prepare(`
     SELECT
@@ -30,7 +30,16 @@ const get_films = db.prepare(/*sql*/ `
 `);
 
 function getFilmsbyUser(user_id) {
-  return get_films.all(user_id);
+    return get_films.all(user_id);
+}
+
+const delete_film = db.prepare(`
+    DELETE FROM films
+    WHERE id = ?
+`);
+
+function deleteFilm(filmid) {
+    delete_film.run(filmid);
 }
 
 const add_film = db.prepare(/*sql*/ `
@@ -39,9 +48,14 @@ const add_film = db.prepare(/*sql*/ `
   `);
 
 function addFilm(name, year, director, genre_id, image_path, user_id) {
-  return add_film.run({name, year, director, genre_id, image_path, user_id})
+    return add_film.run({
+        name,
+        year,
+        director,
+        genre_id,
+        image_path,
+        user_id,
+    });
 }
 
-
-module.exports = { listAllFilms, getFilmsbyUser, addFilm };
-
+module.exports = { listAllFilms, getFilmsbyUser, addFilm, deleteFilm };

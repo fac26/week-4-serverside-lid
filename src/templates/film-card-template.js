@@ -14,16 +14,18 @@ function filmCardTemplate(film, session = {}) {
         <li class="film">
         <h4>${film.name}</h4>
         <p>${film.year}</p>   
+        <p>${film.director}</p> 
     `;
-    if (checkCurrentUser(film, session) === false) {
+    if (!checkCurrentUser(film, session)) {
         return /*html*/ `
-        ${filmTemplate}
-    </li>
-        `;
+      ${filmTemplate}
+  </li>
+      `;
+    } else {
+        return /*html*/ `
+    ${filmTemplate}
+    ${deleteButton(film)}`;
     }
-    return /*html*/ `
-        ${filmTemplate}
-        ${deleteButton(film)}`;
 }
 
 function deleteButton(film) {
