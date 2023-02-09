@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-## Week 4 - Server Side App
-
-Contributors: Dominic, Iman and Laura
-
-
-when you post form, check if user exists. 
-server.post('')
-=======
 ## Week 4 - Server Side App
 
 Contributors: Dominic, Iman and Laura
@@ -77,4 +68,4 @@ This uses the nodemon library to auto-restart the server when you save changes.
 |:--:|:----------------------------------------:   |:-------------:|:--------------: |                                                                     
 | 1  | a@example.com                               | ....          | date            |
 | 2  | a@example.com                               | ....          | date            |
->>>>>>> main
+
