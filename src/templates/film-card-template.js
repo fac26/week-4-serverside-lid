@@ -1,4 +1,6 @@
 const { checkCurrentUser } = require('../routes/current-user');
+//const { filmImage } = require('../routes/add-film');
+
 
 function renderCards(session, filmsFromDB) {
     const filmsUL = /*html*/ `
@@ -10,12 +12,15 @@ function renderCards(session, filmsFromDB) {
 }
 
 function filmCardTemplate(film, session = {}) {
+    //console.log(film.image_path + 'imagepath')
     const filmTemplate = /*html*/ `
         <li class="film">
         <h4>${film.name}</h4>
         <p>${film.year}</p>   
-        <p>${film.director}</p> 
+        <p>${film.director}</p>
+        <img src=${film.image_path}>
     `;
+    
     if (!checkCurrentUser(film, session)) {
         return /*html*/ `
       ${filmTemplate}
@@ -27,6 +32,7 @@ function filmCardTemplate(film, session = {}) {
     ${deleteButton(film)}`;
     }
 }
+
 
 function deleteButton(film) {
     return /*html*/ `

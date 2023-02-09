@@ -2,6 +2,7 @@ const { html, navBar } = require("../templates/html"); //all pages will have the
 const { addFilmForm } = require("../templates/forms");
 const { addFilm } = require("../model/films");
 const { getSession } = require("../model/sessions");
+const fs = require('fs');
 
 //for get req-diplay form for user to add new secret
 function getAddFilmForm(req, res) {
@@ -17,8 +18,10 @@ function getAddFilmForm(req, res) {
 
 //adding post /add-film so handleaddfilm
 //stretch-are we validating image upload too? to check its only image not a file
+let filmImage;
+
 function postAddFilmForm(req, res) {
-  let { name, year, director, genre_id } = req.body;
+  let { name, year, director } = req.body;
   const errors = {};
   if (!name) {
     errors.name = "Please add film name";
@@ -36,12 +39,17 @@ function postAddFilmForm(req, res) {
     const body = html(title, nav, content);
     res.send(body);
 } else {
-    const filmImage = req.file.path.replace("public", "..");
-    console.log(filmImage);
-    const DBsession = getSession(req.session.id);
-    addFilm(name, year, director, 1, filmImage, DBsession.user_id)
-    res.redirect(`/`);
+    filmImage = req.file.path.replace("public", ".") + '.jpeg';
+    fs.rename(req.file.path, `${req.file.path}.jpeg`, (err) => {
+      if (err) {
+        console.error(err);
+        return res.status(500).send("An error occurred while renaming the file");
+      }
+      console.log(filmImage);
+      const DBsession = getSession(req.session.id);
+      addFilm(name, year, director, 1, filmImage, DBsession.user_id);
+      res.redirect(`/`);
+    });
   }
 }
-
-module.exports = { getAddFilmForm, postAddFilmForm };
+module.exports = { getAddFilmForm, postAddFilmForm, filmImage };
