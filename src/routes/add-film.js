@@ -1,6 +1,8 @@
 const { html, navBar } = require("../templates/html"); //all pages will have the navbar;
 const { addFilmForm } = require("../templates/forms");
 const { addFilm } = require("../model/films");
+const { getSession } = require("../model/sessions");
+
 
 //for get req-diplay form for user to add new secret
 function getAddFilmForm(req, res) {
@@ -11,13 +13,14 @@ function getAddFilmForm(req, res) {
   const content = addFilmForm();
   const nav = navBar(req.session);
   const body = html(title, nav, content); 
+  // const filmsList = getFilms(DBsession);
   res.send(body);
 }
 
 //adding post /add-film so handleaddfilm
 //stretch-are we validating image upload too? to check its only image not a file
 function postAddFilmForm(req, res) {
-  let { name, year, director, genre_id, image } = req.body;
+  let { name, year, director, genre_id, file } = req.body;
   const errors = {};
   if (!name) {
     errors.name = 'Please add film name';
@@ -35,11 +38,12 @@ function postAddFilmForm(req, res) {
     const body = html(title, nav, content); 
     res.send(body);
 } else {
+    const filmImage = req.file.path.replace("public", "..");
+    console.log(filmImage);
     const DBsession = getSession(req.session.id);
-    addFilm(name, year, director, 1, image, DBsession.user_id)
+    addFilm(name, year, director, 1, filmImage, DBsession.user_id)
     res.redirect(`/`);
 }
 }
-
 
 module.exports = { getAddFilmForm, postAddFilmForm };

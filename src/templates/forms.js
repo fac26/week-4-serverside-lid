@@ -1,6 +1,18 @@
-const { sanitize, validation } = require('../model/sanitize-validate');
+// const { sanitize, validation } = require('../model/sanitize-validate');
 
-function signupLogin(path, errors = {}, values= {}) {
+function sanitize(unsafe) {
+    return unsafe.replace(/</g, '&lt;');
+}
+
+function validation(message) {
+    if (message) {
+        return `<span style="color: red">${message}</span>`;
+    } else {
+        return '';
+    }
+}
+
+function signupLogin(path, errors = {}, values = {}) {
     const credentialshtml = /*html*/ `
     <div class="credentials-form">
       <form method="POST" class="Row" action="${path}">
@@ -20,36 +32,41 @@ function signupLogin(path, errors = {}, values= {}) {
       </form>
     </div>
   `;
-  return credentialshtml;
+    return credentialshtml;
 }
 
 function addFilmForm(errors = {}, values = {}) {
-  const formhtml = /*html*/ `
-  <form method="POST" action="/add-film">
+    const formhtml = /*html*/ `
+  <form method="POST" action="/add-film" enctype="multipart/form-data">
   <div>
     <label for="name">Film Title</label> 
-    <input name="name" id="name" required value="${values.name ? sanitize(values.name) : ''}">
+    <input name="name" id="name" required value="${
+        values.name ? sanitize(values.name) : ''
+    }">
     ${validation(errors.name)}
   </div>
   <div>
     <label for="year">Year Released</label> 
-    <input name="year" type="number" id="year" required value="${values.year ? sanitize(values.year) : ''}">
+    <input name="year" type="number" id="year" required value="${
+        values.year ? sanitize(values.year) : ''
+    }">
     ${validation(errors.year)}
   </div>
   <div>
     <label for="director">Director</label>
-    <input name="director" id="director" required value="${values.director ? sanitize(values.director) : ''}">
+    <input name="director" id="director" required value="${
+        values.director ? sanitize(values.director) : ''
+    }">
     ${validation(errors.director)}
   </div>
   <div>
   <label for="image">Upload image</label>
-  <input name="imagename" id="image" type="file"> 
+  <input name="image" id="image" type="file"> 
 </div>
   <button class="Button" type="Submit">Add &plus;</button>
   </form>
   `;
-  return formhtml;
+    return formhtml;
 }
 
-module.exports = { signupLogin, addFilmForm }
-
+module.exports = { signupLogin, addFilmForm };
