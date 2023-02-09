@@ -16,30 +16,8 @@ const { getSession, removeSession } = require("./model/sessions"); //getSession(
 const { getAddFilmForm, postAddFilmForm } = require("./routes/add-film");
 const { postSignOut } = require("./routes/log-out");
 const { handleDeleteFilm } = require('./routes/delete-film');
-// const db = require("./database/db");
 
 const server = express();
-
-// const storage = multer.diskStorage({
-//   destination: function (req, file, cb) {
-//     cb(null, './uploads/');
-//   },
-//   filename: function (req, file, cb) {
-//     cb(null, file.fieldname + '-' + Date.now());
-//   }
-// });
-
-// const upload = multer({ storage: storage });
-
-// server.post('/add-film', upload.single('image'), (req, res) => {
-//   const insertFilm = db.prepare(`
-//     INSERT INTO films (title, image)
-//     VALUES (?, ?)
-//   `);
-//   insertFilm.run(req.body.title, req.file.path);
-
-//   res.send('Film added to database!');
-// });
 
 server.use(staticHandler);
 server.use(cookies);
